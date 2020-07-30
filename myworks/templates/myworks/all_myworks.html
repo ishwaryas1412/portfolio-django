@@ -1,0 +1,25 @@
+
+{% extends 'projects/base.html' %}
+
+{% block content %}
+
+
+
+<h1>My Work</h1>
+
+
+{% for myworks in myworks %}
+
+<a href="{% url 'myworks:detail' myworks.id %}"<h2>{{ myworks.title }}</h2></a><br>
+
+<p>{{ myworks.description }}</p>
+
+{% if myworks.url %}
+<a href="{{ myworks.url }}">Link</a><br><br>
+{% endif %}
+
+
+
+{% endfor %}
+
+{% endblock %}

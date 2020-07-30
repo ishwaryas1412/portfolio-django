@@ -1,0 +1,27 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+    <h1>ISHWARYA SEKAR</h1>
+
+    {% load static %}
+
+    <a href="{% url 'myworks:all_myworks' %}">MyWorks</a>
+    <br>
+
+    <a href="{% static 'projects/ishwarya.pdf' %}">Resume</a>
+    <br>
+    <img src="{% static 'projects/ishu.png' %}">
+
+    {% for project in projects %}
+
+    <h2>{{ project.title }}</h2><br>
+    <p>{{ project.description }}</p><br>
+    <img src="{{ project.image.url }}" width=250 height=250><br>
+    {% if project.url %}
+    <a href="{{ project.url }}">Link</a>
+    {% endif %}
+
+
+
+    {% endfor %}
+{% endblock %}
